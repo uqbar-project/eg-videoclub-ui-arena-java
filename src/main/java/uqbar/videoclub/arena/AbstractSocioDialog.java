@@ -11,10 +11,8 @@ import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.widgets.TextBox;
-import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.commons.model.Home;
-import org.uqbar.lacar.ui.model.Action;
 
 import tadp.blocbaster.daos.Videoclub;
 import tadp.blocbaster.entidades.Ciudad;
@@ -49,7 +47,7 @@ public abstract class AbstractSocioDialog extends TransactionalDialog<Socio> {
 		new TextBox(form).bindValueToProperty(Socio.DIRECCION);
 
 		new Label(form).setText("Fecha de Ingreso");
-		new TextBox(form).bindValueToProperty(Socio.FECHA_INGRESO).setAdapter(new DateAdapter());
+		new TextBox(form).bindValueToProperty(Socio.FECHA_INGRESO).setTransformer(new DateAdapter());
 		
 		// combo al enum de estado
 		new Label(form).setText("Estado");
