@@ -100,11 +100,11 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 
 	@Override
 	protected void addActions(Panel actionsPanel) {
-		super.addActions(actionsPanel);
-
 		Button nuevoSocio = new Button(actionsPanel);
 		nuevoSocio.setCaption("Nuevo Socio");
 		nuevoSocio.onClick(new MessageSend(this, "crearSocio"));
+		
+		super.addActions(actionsPanel);
 	}
 
 	// ********************************************************
@@ -113,7 +113,7 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 
 	public void crearSocio() {
 		Dialog<?> crearSocio = new CrearSocioDialog(this);
-		crearSocio.onAccept(new MessageSend(this.getModel(), Search.SEARCH));
+		crearSocio.onAccept(new MessageSend(this.getModelObject(), Search.SEARCH));
 		crearSocio.open();
 	}
 
