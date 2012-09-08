@@ -32,7 +32,7 @@ public abstract class SearchWindow<E, T extends Search<E>> extends SimpleWindow<
 	protected void createResultsGrid(Panel mainPanel) {
 		Table<E> table = new Table<E>(mainPanel, this.getModelObject().getEntityType());
 
-		table.bindContentsToProperty(Search.RESULTS);
+		table.bindItemsToProperty(Search.RESULTS);
 		table.bindSelection(Search.SELECTED);
 
 		this.describeResultsGrid(table);
