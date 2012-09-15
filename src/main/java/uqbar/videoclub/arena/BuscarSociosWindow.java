@@ -42,12 +42,6 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 	}
 
 	@Override
-	protected Panel createMainPanel() {
-		Panel formBuilder = super.createMainPanel();
-		return formBuilder;
-	}
-
-	@Override
 	protected void createFormPanel(Panel mainPanel) {
 		Panel searchFormPanel = new Panel(mainPanel);
 		searchFormPanel.bindContents(SearchByExample.EXAMPLE);

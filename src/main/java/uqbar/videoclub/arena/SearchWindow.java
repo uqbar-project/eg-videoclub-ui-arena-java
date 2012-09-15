@@ -2,13 +2,13 @@ package uqbar.videoclub.arena;
 
 import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.bindings.NotNullObservable;
+import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.commons.model.ObservableObject;
 import org.uqbar.commons.model.Search;
 
 public abstract class SearchWindow<E, T extends Search<E>> extends SimpleWindow<T> {
@@ -57,7 +57,7 @@ public abstract class SearchWindow<E, T extends Search<E>> extends SimpleWindow<
 
 	protected void createGridActions(Panel mainPanel) {
 		Panel actionsPanel = new Panel(mainPanel);
-		actionsPanel.setHorizontalLayout();
+		actionsPanel.setLayout(new HorizontalLayout());
 
 		NotNullObservable elementSelected = new NotNullObservable(Search.SELECTED);
 
