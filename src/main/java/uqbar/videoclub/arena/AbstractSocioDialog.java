@@ -1,7 +1,6 @@
 package uqbar.videoclub.arena;
 
 import java.util.Arrays;
-
 import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.aop.windows.TransactionalDialog;
 import org.uqbar.arena.bindings.DateAdapter;
