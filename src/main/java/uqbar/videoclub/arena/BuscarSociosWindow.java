@@ -28,6 +28,7 @@ import com.uqbar.commons.collections.Transformer;
  * 
  * @author npasserini
  */
+@SuppressWarnings("serial")
 public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Socio>> {
 	
 	public BuscarSociosWindow(WindowOwner owner) {
