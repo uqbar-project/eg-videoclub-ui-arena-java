@@ -1,6 +1,7 @@
 package uqbar.videoclub.arena;
 
 import java.util.Arrays;
+
 import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.aop.windows.TransactionalDialog;
 import org.uqbar.arena.bindings.DateAdapter;
@@ -20,6 +21,7 @@ import tadp.blocbaster.entidades.Socio;
 /**
  * @author npasserini
  */
+@SuppressWarnings("serial")
 public abstract class AbstractSocioDialog extends TransactionalDialog<Socio> {
 	private Home<Socio> home;
 
@@ -40,13 +42,18 @@ public abstract class AbstractSocioDialog extends TransactionalDialog<Socio> {
 		form.setLayout(new ColumnLayout(2));
 
 		new Label(form).setText("Nombre");
-		new TextBox(form).bindValueToProperty(Socio.NOMBRE);
+		TextBox txtNombre = new TextBox(form);
+		txtNombre.setWidth(200);
+		txtNombre.bindValueToProperty(Socio.NOMBRE);
 
 		new Label(form).setText("Direccion");
-		new TextBox(form).bindValueToProperty(Socio.DIRECCION);
+		TextBox txtDireccion = new TextBox(form);
+		txtDireccion.setWidth(300);
+		txtDireccion.bindValueToProperty(Socio.DIRECCION);
 
 		new Label(form).setText("Fecha de Ingreso");
-		new TextBox(form).bindValueToProperty(Socio.FECHA_INGRESO).setTransformer(new DateAdapter());
+		TextBox txtFechaIngreso = new TextBox(form);
+		txtFechaIngreso.bindValueToProperty(Socio.FECHA_INGRESO).setTransformer(new DateAdapter());
 		
 		// combo al enum de estado
 		new Label(form).setText("Estado");

@@ -8,6 +8,7 @@ import tadp.blocbaster.entidades.Socio;
  * 
  * @author npasserini
  */
+@SuppressWarnings("serial")
 public class CrearSocioDialog extends AbstractSocioDialog {
 	
 	public CrearSocioDialog(WindowOwner owner) {
@@ -16,8 +17,8 @@ public class CrearSocioDialog extends AbstractSocioDialog {
 	
 	@Override
 	protected void executeTask() {
-		super.executeTask();
 		getHome().create(this.getModelObject());
+		super.executeTask();
 	}
 	
 }
