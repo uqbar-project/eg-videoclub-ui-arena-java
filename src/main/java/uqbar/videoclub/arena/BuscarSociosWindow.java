@@ -44,7 +44,7 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 	@Override
 	protected void createFormPanel(Panel mainPanel) {
 		Panel searchFormPanel = new Panel(mainPanel);
-		searchFormPanel.bindContents(SearchByExample.EXAMPLE);
+		searchFormPanel.bindContentsToProperty(SearchByExample.EXAMPLE);
 		searchFormPanel.setLayout(new ColumnLayout(2));
 
 		// Field nombre
@@ -88,7 +88,7 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 		direccionColumn.setFixedSize(200);
 		direccionColumn.bindContentsToProperty(Socio.DIRECCION);
 		
-		table.setHeigth(300);
+		table.setHeight(300);
 		table.setWidth(600);
 	}
 

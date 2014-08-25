@@ -9,9 +9,10 @@ import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.commons.model.Entity;
 import org.uqbar.commons.model.Search;
 
-public abstract class SearchWindow<E, T extends Search<E>> extends SimpleWindow<T> {
+public abstract class SearchWindow<E extends Entity, T extends Search<E>> extends SimpleWindow<T> {
 	private static final long serialVersionUID = 1L;
 
 	public SearchWindow(WindowOwner owner, T model) {
@@ -33,7 +34,7 @@ public abstract class SearchWindow<E, T extends Search<E>> extends SimpleWindow<
 		Table<E> table = new Table<E>(mainPanel, this.getModelObject().getEntityType());
 
 		table.bindItemsToProperty(Search.RESULTS);
-		table.bindSelection(Search.SELECTED);
+		table.bindSelectionToProperty(Search.SELECTED);
 
 		this.describeResultsGrid(table);
 	}
