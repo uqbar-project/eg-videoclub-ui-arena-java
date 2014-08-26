@@ -14,10 +14,12 @@ public class CrearSocioDialog extends AbstractSocioDialog {
 	public CrearSocioDialog(WindowOwner owner) {
 		super(owner, new Socio());
 	}
-	
-	protected void executeTask() {
+
+	@Override
+	public void accept() {
+		// WORKAROUND momentáneo, porque el executeTask() no se llama desde un TransactionalDialog
 		getHome().create(this.getModelObject());
-		super.executeTask();
+		super.accept();
 	}
-	
+
 }
