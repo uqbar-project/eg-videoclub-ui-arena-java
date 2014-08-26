@@ -15,7 +15,6 @@ public class CrearSocioDialog extends AbstractSocioDialog {
 		super(owner, new Socio());
 	}
 	
-	@Override
 	protected void executeTask() {
 		getHome().create(this.getModelObject());
 		super.executeTask();

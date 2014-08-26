@@ -7,8 +7,8 @@ import tadp.blocbaster.entidades.Socio;
 /**
  * @author npasserini
  */
+@SuppressWarnings("serial")
 public class ModificarSocioDialog extends AbstractSocioDialog {
-	private static final long serialVersionUID = -5686548988446128817L;
 
 	public ModificarSocioDialog(WindowOwner owner, Socio socio) {
 		super(owner, socio);
