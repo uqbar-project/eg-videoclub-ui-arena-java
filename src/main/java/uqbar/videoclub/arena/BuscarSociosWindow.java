@@ -3,6 +3,7 @@ package uqbar.videoclub.arena;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
+import org.apache.commons.collections15.Transformer;
 import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
@@ -21,7 +22,6 @@ import org.uqbar.commons.model.SearchByExample;
 import tadp.blocbaster.daos.Videoclub;
 import tadp.blocbaster.entidades.Socio;
 
-import com.uqbar.commons.collections.Transformer;
 
 /**
  * Representa la ventana de busqueda de socios del videoclub.
