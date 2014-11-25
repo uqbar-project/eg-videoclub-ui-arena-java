@@ -1,6 +1,5 @@
 package uqbar.videoclub.arena;
 
-import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.bindings.NotNullObservable;
 import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
@@ -49,7 +48,7 @@ public abstract class SearchWindow<E extends Entity, T extends Search<E>> extend
 	protected void addActions(Panel actionsPanel) {
 		Button buscar = new Button(actionsPanel);
 		buscar.setCaption("Buscar");
-		buscar.onClick(new MessageSend(this.getModelObject(), Search.SEARCH));
+		buscar.onClick(getModelObject()::search);
 		buscar.setAsDefault();
 
 		// TODO Ver si agregamos la acción de limpiar:
@@ -65,12 +64,12 @@ public abstract class SearchWindow<E extends Entity, T extends Search<E>> extend
 		Button edit = new Button(actionsPanel);
 		edit.setCaption("Edit");
 		edit.bindEnabled(elementSelected);
-		edit.onClick(new MessageSend(this, "startEdition"));
+		edit.onClick(this::startEdition);
 
 		Button remove = new Button(actionsPanel);
 		remove.setCaption("Remove");
 		remove.bindEnabled(new NotNullObservable(Search.SELECTED));
-		remove.onClick(new MessageSend(this.getModelObject(), "removeSelected"));
+		remove.onClick(getModelObject()::removeSelected);
 	}
 
 	// ********************************************************
@@ -79,7 +78,7 @@ public abstract class SearchWindow<E extends Entity, T extends Search<E>> extend
 
 	public void startEdition() {
 		Dialog<?> editor = this.createEditor(this.getModelObject().getSelected());
-		editor.onAccept(new MessageSend(this.getModelObject(), Search.SEARCH));
+		editor.onAccept(getModelObject()::search);
 		editor.open();
 	}
 

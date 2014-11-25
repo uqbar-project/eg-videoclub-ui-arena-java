@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.apache.commons.collections15.Transformer;
-import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Control;
@@ -77,12 +76,7 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 		Column<Socio> ingresoColumn = new Column<Socio>(table);
 		ingresoColumn.setTitle("Fecha de ingreso");
 		ingresoColumn.setFixedSize(200);
-		ingresoColumn.bindContentsToTransformer(new Transformer<Socio, String>() {
-			@Override
-			public String transform(Socio socio) {
-				return new SimpleDateFormat("dd/MM/yyyy").format(socio.getFecha());
-			}
-		});
+		ingresoColumn.bindContentsToTransformer(socio -> new SimpleDateFormat("dd/MM/yyyy").format(socio.getFecha()));
 
 		Column<Socio> direccionColumn = new Column<Socio>(table);
 		direccionColumn.setTitle("Direccion");
@@ -97,7 +91,7 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 	protected void addActions(Panel actionsPanel) {
 		Button nuevoSocio = new Button(actionsPanel);
 		nuevoSocio.setCaption("Nuevo Socio");
-		nuevoSocio.onClick(new MessageSend(this, "crearSocio"));
+		nuevoSocio.onClick(this::crearSocio);
 		
 		super.addActions(actionsPanel);
 	}
@@ -108,7 +102,7 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 
 	public void crearSocio() {
 		Dialog<?> crearSocio = new CrearSocioDialog(this);
-		crearSocio.onAccept(new MessageSend(this.getModelObject(), Search.SEARCH));
+		crearSocio.onAccept(getModelObject()::search);
 		crearSocio.open();
 	}
 

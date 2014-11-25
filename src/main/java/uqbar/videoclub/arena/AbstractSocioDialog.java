@@ -2,7 +2,6 @@ package uqbar.videoclub.arena;
 
 import java.util.Arrays;
 
-import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.aop.windows.TransactionalDialog;
 import org.uqbar.arena.bindings.DateAdapter;
 import org.uqbar.arena.layout.ColumnLayout;
@@ -67,13 +66,13 @@ public abstract class AbstractSocioDialog extends TransactionalDialog<Socio> {
 	protected void addActions(Panel actions) {
 		new Button(actions)
 			.setCaption("Aceptar")
-			.onClick(new MessageSend(this, ACCEPT))
+			.onClick(this::accept)
 			.setAsDefault()
 			.disableOnError();
 
 		new Button(actions) //
 			.setCaption("Cancelar")
-			.onClick(new MessageSend(this, CANCEL));
+			.onClick(this::cancel);
 	}
 	
 	public Home<Socio> getHome() {
