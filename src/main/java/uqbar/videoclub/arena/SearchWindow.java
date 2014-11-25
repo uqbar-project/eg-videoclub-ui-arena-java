@@ -50,8 +50,6 @@ public abstract class SearchWindow<E extends Entity, T extends Search<E>> extend
 		buscar.setCaption("Buscar");
 		buscar.onClick(getModelObject()::search);
 		buscar.setAsDefault();
-
-		// TODO Ver si agregamos la acción de limpiar:
 		// new Button(actions).setCaption("Limpiar").onClick(new MessageSend(this.getModel(), "clear"));
 	}
 

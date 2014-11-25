@@ -17,7 +17,6 @@ public class CrearSocioDialog extends AbstractSocioDialog {
 
 	@Override
 	public void accept() {
-		// WORKAROUND momentáneo, porque el executeTask() no se llama desde un TransactionalDialog
 		getHome().create(this.getModelObject());
 		super.accept();
 	}

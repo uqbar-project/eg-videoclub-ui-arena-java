@@ -17,7 +17,6 @@ public class VideoclubApplication extends Application {
 
 	@Override
 	protected Window<?> createMainWindow() {
-		// return new CrearSocioPanel();
 		return new BuscarSociosWindow(this);
 	}
 }

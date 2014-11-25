@@ -3,7 +3,6 @@ package uqbar.videoclub.arena;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
-import org.apache.commons.collections15.Transformer;
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Control;
@@ -15,7 +14,6 @@ import org.uqbar.arena.widgets.tables.Column;
 import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.commons.model.Search;
 import org.uqbar.commons.model.SearchByExample;
 
 import tadp.blocbaster.daos.Videoclub;
@@ -110,21 +108,4 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 	protected Dialog<?> createEditor(Socio selected) {
 		return new ModificarSocioDialog(this, selected);
 	}
-
-	// @Override
-	// protected void addActions(Panel actions) {
-	// Button buscar= actions.addButton();
-	// buscar.setModelAction("search");
-	// buscar.setAsDefault();
-	//
-	// Button agregar = actions.addButton();
-	// agregar.setPanelAction("agregarSocio");
-	// }
-	//
-	// protected void agregarSocio() {
-	// Dialog agregarSocio = new CrearSocioPanel(...);
-	// agregarSocio.onClose(this, "search");
-	// agregarSocio onCloseSend: #search to: self
-	// }
-
 }
