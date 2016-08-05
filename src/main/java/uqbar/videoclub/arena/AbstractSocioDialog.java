@@ -3,7 +3,7 @@ package uqbar.videoclub.arena;
 import java.util.Arrays;
 
 import org.uqbar.arena.aop.windows.TransactionalDialog;
-import org.uqbar.arena.bindings.DateAdapter;
+import org.uqbar.arena.bindings.DateTransformer;
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
@@ -52,7 +52,7 @@ public abstract class AbstractSocioDialog extends TransactionalDialog<Socio> {
 
 		new Label(form).setText("Fecha de Ingreso");
 		TextBox txtFechaIngreso = new TextBox(form);
-		txtFechaIngreso.bindValueToProperty(Socio.FECHA_INGRESO).setTransformer(new DateAdapter());
+		txtFechaIngreso.bindValueToProperty(Socio.FECHA_INGRESO).setTransformer(new DateTransformer());
 		
 		// combo al enum de estado
 		new Label(form).setText("Estado");

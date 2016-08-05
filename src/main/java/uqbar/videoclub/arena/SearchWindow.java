@@ -60,12 +60,12 @@ public abstract class SearchWindow<E extends Entity, T extends Search<E>> extend
 		NotNullObservable elementSelected = new NotNullObservable(Search.SELECTED);
 
 		Button edit = new Button(actionsPanel);
-		edit.setCaption("Edit");
+		edit.setCaption("Editar");
 		edit.bindEnabled(elementSelected);
 		edit.onClick(this::startEdition);
 
 		Button remove = new Button(actionsPanel);
-		remove.setCaption("Remove");
+		remove.setCaption("Eliminar");
 		remove.bindEnabled(new NotNullObservable(Search.SELECTED));
 		remove.onClick(getModelObject()::removeSelected);
 	}

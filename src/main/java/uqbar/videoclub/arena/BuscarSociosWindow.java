@@ -50,6 +50,7 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 		nombreLabel.setText("Nombre");
 
 		Control nombre = new TextBox(searchFormPanel);
+		nombre.setWidth(200);
 		nombre.bindValueToProperty(Socio.NOMBRE);
 
 		// Field direccion
@@ -57,6 +58,7 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 		direccionLabel.setText("Direccion");
 
 		Control direccion = new TextBox(searchFormPanel);
+		direccion.setWidth(200);
 		direccion.bindValueToProperty(Socio.DIRECCION);
 		
 		new Label(searchFormPanel).setText("Estado");
@@ -74,7 +76,7 @@ public class BuscarSociosWindow extends SearchWindow<Socio, SearchByExample<Soci
 		Column<Socio> ingresoColumn = new Column<Socio>(table);
 		ingresoColumn.setTitle("Fecha de ingreso");
 		ingresoColumn.setFixedSize(200);
-		ingresoColumn.bindContentsToTransformer(socio -> new SimpleDateFormat("dd/MM/yyyy").format(socio.getFecha()));
+		ingresoColumn.bindContentsToProperty("fecha").setTransformer(fecha -> new SimpleDateFormat("dd/MM/yyyy").format(fecha));
 
 		Column<Socio> direccionColumn = new Column<Socio>(table);
 		direccionColumn.setTitle("Direccion");
